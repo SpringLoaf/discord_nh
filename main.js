@@ -76,13 +76,11 @@ client.on('message', (message) =>
         var help = new Discord.MessageEmbed()
             .setColor(`${getRandomColor()}`)
             .setTitle(`"Help me step-user, I'm stuck!"`)
-            .setDescription(``)
-            .setURL(``)
+            .setDescription(`Simple Help Guide`)
             .addFields(
                 {name: '!h', value: 'call this command'},
                 {name: '!n', value: 'embed sauce'},
                 {name: '!r', value: 'reset history (activity)'}            )
-            .setThumbnail('./lib/')
             .setTimestamp(`${new Date()}`);
         message.channel.send(help);
     }
