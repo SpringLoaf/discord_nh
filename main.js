@@ -71,7 +71,7 @@ client.on('message', (message) =>
             message.channel.send('Improper usage.\nPlease use this format: ``' + CALL + 'n [nHentai Code]``.');
         }
     }
-    else if (command === h) 
+    else if (command === 'h') 
     {
         var help = new Discord.MessageEmbed()
             .setColor(`${getRandomColor()}`)
@@ -81,14 +81,12 @@ client.on('message', (message) =>
             .addFields(
                 {name: '!h', value: 'call this command'},
                 {name: '!n', value: 'embed sauce'},
-                {name: '!r', value: 'reset history (activity)'},
-                {name: '!h', value: 'call this command'}
-            )
+                {name: '!r', value: 'reset history (activity)'}            )
             .setThumbnail('./lib/')
             .setTimestamp(`${new Date()}`);
         message.channel.send(help);
     }
-    else if (command === r) 
+    else if (command === 'r') 
     {
         client.user.setActivity('Check out our new coffee shop! https://eja.chule-latte.com', {type: 3});
         message.channel.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825');
