@@ -1,6 +1,7 @@
 process.stdout.write('\u001B[2J\u001B[0;0f');
 
 const { TOKEN, CALL } = require("./config.json");
+const script = require('./altos.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const axios = require("axios");
@@ -73,25 +74,61 @@ client.on('message', (message) =>
     }
     else if (command === 'h') 
     {
-        var help = new Discord.MessageEmbed()
-            .setColor(`${getRandomColor()}`)
-            .setTitle(`"Help me step-user, I'm stuck!"`)
-            .setDescription(`Simple Help Guide`)
-            .addFields(
-                {name: '!h', value: 'call this command'},
-                {name: '!n', value: 'embed sauce'},
-                {name: '!r', value: 'reset history (activity)'}            )
-            .setTimestamp(`${new Date()}`);
-        message.channel.send(help);
+        var chose = Math.floor(Math.random() * 5);
+        console.log(chose)
+        switch (chose) {
+            case 1:
+                var chosen = Math.floor(Math.random() * (9 - 1) + 1);
+                message.channel.send(`${script[chosen]}`);
+                client.user.setActivity(`${script[chosen]}`, {type: 1});
+                break;
+            default:
+                var help = new Discord.MessageEmbed()
+                    .setColor(`${getRandomColor()}`)
+                    .setTitle(`"Help me step-user, I'm stuck!"`)
+                    .setDescription(`Simple Help Guide`)
+                    .addFields(
+                        {name: '!h', value: 'call this command'},
+                        {name: '!n', value: 'embed sauce'},
+                        {name: '!r', value: 'reset history (activity)'}
+                        )
+                    .setTimestamp(`${new Date()}`);
+                message.channel.send(help);
+                break;                
+        }
     }
     else if (command === 'r') 
     {
-        client.user.setActivity('Check out our new coffee shop! https://eja.chule-latte.com', {type: 3});
-        message.channel.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825');
+        var chose = Math.floor(Math.random() * 5);
+        console.log(chose)
+        switch (chose) {
+            case 1:
+                var chosen = Math.floor(Math.random() * (9 - 1) + 1);
+                message.channel.send(`${script[chosen]}`);
+                client.user.setActivity(`${script[chosen]}`, {type: 1});
+                break;
+            default:
+                client.user.setActivity('Check out our new coffee shop! https://eja.chule-latte.com', {type: 3});
+                message.channel.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825');
+                break;                
+        }
     }
     else
     {
-        message.channel.send(`Use ${CALL}h for information on how to use the bot.\nAlternatively, send a message to <@&887179555977171014>`)
+        client.user.setActivity('Check out our new coffee shop! https://eja.chule-latte.com', {type: 3});
+        var chose = Math.floor(Math.random() * 5);
+        console.log(chose)
+        switch (chose) {
+            case 1:
+                var chosen = Math.floor(Math.random() * (9 - 1) + 1);
+                message.channel.send(`${script[chosen]}`);
+                client.user.setActivity(`${script[chosen]}`, {type: 1});
+                message.channel.send('http://973whiterabbitz973.com/web_the-nuclear-family_wide.jpg');
+                break;
+            default:
+                message.channel.send(`Use ${CALL}h for information on how to use the bot.\nAlternatively, send a message to <@&887179555977171014>`)
+                break;                
+        }
     }
 
 });
